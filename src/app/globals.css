@@ -1,26 +1,283 @@
+/* app/globals.css */
 @import "tailwindcss";
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  
+  --wp-admin-theme-color: #007cba;
+  --wp-admin-theme-color--rgb: 0,124,186;
+  --wp-admin-theme-color-darker-10: #006ba1;
+  --wp-admin-theme-color-darker-10--rgb: 0,107,161;
+  --wp-admin-theme-color-darker-20: #005a87;
+  --wp-admin-theme-color-darker-20--rgb: 0,90,135;
+  
+  --wp-block-synced-color: #7a00df;
+  --wp-block-synced-color--rgb: 122,0,223;
+  --wp-bound-block-color: var(--wp-block-synced-color);
+  
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-accent-main: #6E5BFF;
+  --color-accent-main-darker: #4d38ec;
+  --color-accent-main-darkest: #442fe2;
+  --color-grayscale-50: #f6f6f6;
+  --color-grayscale-100: #e7e7e7;
+  --color-grayscale-200: #d1d1d1;
+  --color-grayscale-300: #b0b0b0;
+  --color-grayscale-400: #888888;
+  --color-grayscale-500: #6d6d6d;
+  --color-grayscale-600: #4f4f4f;
+  --color-grayscale-700: #454545;
+  --color-grayscale-800: #3d3d3d;
+  --color-grayscale-900: #171717;
+  
+  --spacing-0: 0px;
+  --spacing-4: 4px;
+  --spacing-8: 8px;
+  --spacing-12: 12px;
+  --spacing-16: 16px;
+  --spacing-24: 24px;
+  --spacing-32: 32px;
+  --spacing-40: 40px;
+  --spacing-48: 48px;
+  --spacing-60: 60px;
+  --spacing-80: 80px;
+  --spacing-112: 112px;
+  --spacing-160: 160px;
+  --spacing-240: 240px;
+  --spacing-300: 300px;
+  
+  --font-aeonik: 'Aeonik', sans-serif;
+  
+  --header-height: 116px;
+  --wp-custom-scrollbar-width: 15px;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-aeonik);
   --font-mono: var(--font-geist-mono);
+  
+  --color-purple: {
+    50: #e8e5ff;
+    100: #e8e5ff;
+    500: #6E5BFF;
+    600: #6E5BFF;
+    700: #4d38ec;
+    800: #442fe2;
+  };
+  
+  --color-gray: {
+    50: #f6f6f6;
+    100: #e7e7e7;
+    200: #d1d1d1;
+    300: #b0b0b0;
+    400: #888888;
+    500: #6d6d6d;
+    600: #4f4f4f;
+    700: #454545;
+    800: #3d3d3d;
+    900: #171717;
+  };
+
+  --spacing-112: 28rem;
+  --spacing-160: 40rem;
+  --spacing-240: 60rem;
+  --spacing-300: 75rem;
+  
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+  --font-size-5xl: 3rem;
+  --font-size-6xl: 3.75rem;
+  --font-size-7xl: 4.5rem;
+  --font-size-8xl: 6rem;
+  --font-size-9xl: 8rem;
+  
+  --animate-marquee: marquee 60s linear infinite;
+  --animate-pause: marquee 0s linear infinite;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #000000;
+    --foreground: #ffffff;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-aeonik);
+  font-weight: 500;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "kern";
+  font-kerning: normal;
+  text-rendering: optimizeLegibility;
+}
+
+@font-face {
+  font-family: 'Aeonik';
+  src: url('/fonts/Aeonik-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aeonik';
+  src: url('/fonts/Aeonik-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aeonik';
+  src: url('/fonts/Aeonik-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+.font-feature-kern {
+  font-feature-settings: "kern";
+  font-kerning: normal;
+  text-rendering: optimizeLegibility;
+}
+
+.text-purple-accent {
+  color: var(--color-accent-main);
+}
+
+.bg-purple-accent {
+  background-color: var(--color-accent-main);
+}
+
+.bg-purple-accent-darker {
+  background-color: var(--color-accent-main-darker);
+}
+
+.bg-purple-accent-darkest {
+  background-color: var(--color-accent-main-darkest);
+}
+
+/* Custom animations */
+.animate-marquee {
+  animation: marquee 60s linear infinite;
+}
+
+.animate-pause {
+  animation-play-state: paused;
+}
+
+/* Responsive text sizes */
+.text-fluid-h1 {
+  font-size: clamp(2.5rem, 2.5rem + ((1vw - 0.39rem) * 1.237), 3.25rem);
+}
+
+.text-fluid-h2 {
+  font-size: clamp(2rem, 2rem + ((1vw - 0.39rem) * 1.649), 3rem);
+}
+
+.text-fluid-h3 {
+  font-size: clamp(1.375rem, 1.375rem + ((1vw - 0.39rem) * 1.443), 2.25rem);
+}
+
+.text-fluid-subheading {
+  font-size: clamp(1.25rem, 1.25rem + ((1vw - 0.39rem) * 0.412), 1.5rem);
+}
+
+.text-fluid-body {
+  font-size: clamp(1rem, 1rem + ((1vw - 0.39rem) * 0.206), 1.125rem);
+}
+
+/* Layout utilities */
+.min-h-screen-dynamic {
+  min-height: calc(100svh - var(--header-height, 116px));
+}
+
+.header-height {
+  height: var(--header-height, 116px);
+}
+
+/* Scrollbar styling (optional) */
+::-webkit-scrollbar {
+  width: var(--wp-custom-scrollbar-width, 15px);
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-grayscale-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-grayscale-400);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-grayscale-600);
+}
+
+/* Focus styles */
+.focus-ring:focus {
+  outline: 2px solid var(--color-accent-main);
+  outline-offset: 2px;
+}
+
+/* Dark mode specific styles */
+@media (prefers-color-scheme: dark) {
+  .dark\:bg-gray-950 {
+    background-color: var(--color-grayscale-950, #0a0a0a);
+  }
+  
+  .dark\:text-gray-50 {
+    color: var(--color-grayscale-50, #f6f6f6);
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  body {
+    background: white !important;
+    color: black !important;
+  }
+}
+@keyframes gradient-x {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient-x {
+  background-size: 200% 200%;
+  animation: gradient-x 3s linear infinite;
 }
